@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+import { siteConfig } from "@/config/site.config";
 import { JimuJigyoListPage } from "@/features/jimu-jigyo/server/components/jimu-jigyo-list-page";
 import {
-  YEAR_METADATA,
   getYearLabel,
   isValidYear,
+  YEAR_METADATA,
 } from "@/features/jimu-jigyo/server/loaders/load-jimu-jigyo-list";
 
 type Props = {
@@ -22,8 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!isValidYear(year)) return { title: "事務事業評価" };
   return {
     title: `事務事業分析（${getYearLabel(year)}）`,
-    description:
-      "福岡市の事務事業マネジメントシートをもとに、KPI・予算・効率の動向を分析したページです。",
+    description: `${siteConfig.cityName}の事務事業マネジメントシートをもとに、KPI・予算・効率の動向を分析したページです。`,
   };
 }
 

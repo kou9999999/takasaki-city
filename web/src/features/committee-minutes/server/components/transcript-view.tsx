@@ -1,6 +1,7 @@
 import "server-only";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import Link from "next/link";
+import { siteConfig } from "@/config/site.config";
 import { ChatTranscript } from "../../client/components/chat-transcript";
 import { MINUTES_SEARCH_BY_MEETING_URL } from "../../shared/constants";
 import type { CommitteeMeetingDetail } from "../../shared/types";
@@ -43,7 +44,7 @@ export function TranscriptView({ meeting }: Props) {
           rel="noopener noreferrer"
           className="inline-flex items-center gap-1 text-primary-accent hover:underline"
         >
-          福岡市議会 会議録検索システム
+          {siteConfig.councilName} 会議録検索システム
           <ExternalLink className="size-3" />
         </a>
         <br />

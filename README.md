@@ -1,4 +1,4 @@
-# みらい議会ー福岡市版
+# みらい議会ー高崎市版
 
 公開URL: （デプロイ後に更新）
 
@@ -26,15 +26,19 @@
 【チームみらい（上流）】
   kawasaki/develop
        ↓ 良い更新があれば取り込む
-【このリポジトリ】bakumon1107/mirai-gikai-fukuoka-city
-  kawasaki/develop     ← 上流のコピー（コントリビューターは触らない）
-  fukuoka-city/develop ← 福岡市版の開発ブランチ ★ PRの送り先はここ
+【福岡市版】bakumon1107/mirai-gikai-fukuoka-city
+  fukuoka-city/develop  ← 高崎市版のベース（福岡市版の更新はここから取り込む）
+       ↓
+【このリポジトリ】kou9999999/takasaki-city
+  kawasaki/develop      ← 上流のコピー（コントリビューターは触らない）
+  fukuoka-city/develop  ← 福岡市版のコピー（コントリビューターは触らない）
+  takasaki-city/develop ← 高崎市版の開発ブランチ ★ PRの送り先はここ
        ↑ PR を送る
-【コントリビューター】your-name/mirai-gikai-fukuoka-city（Fork）
+【コントリビューター】your-name/takasaki-city（Fork）
   feature/your-feature  ← ブランチ名は自由
 ```
 
-**`kawasaki/develop` はチームみらいの更新を取り込む専用レーンです。コントリビューターは `fukuoka-city/develop` だけ意識してください。**
+**`kawasaki/develop`・`fukuoka-city/develop` は上流の更新を取り込む専用レーンです。コントリビューターは `takasaki-city/develop` だけ意識してください。**
 
 ### ローカル環境のセットアップ
 
@@ -42,8 +46,9 @@
 
 ```bash
 # 1. クローン
-git clone https://github.com/bakumon1107/mirai-gikai-fukuoka-city.git
-cd mirai-gikai-fukuoka-city
+git clone https://github.com/kou9999999/takasaki-city.git
+cd takasaki-city
+git checkout takasaki-city/develop
 
 # 2. 環境変数を設定
 cp .env.example .env
@@ -62,20 +67,21 @@ pnpm dev   # web(:3000) + admin(:3001)
 開発用 Admin アカウント: `admin@example.com` / `admin123456`
 
 > [!NOTE]
-> `pnpm db:reset` でスキーマとサンプルデータが投入されますが、**実際の福岡市議会データ（議案・一般質問・予算・記者会見等）は含まれません**。
+> `pnpm db:reset` でスキーマとサンプルデータが投入されますが、**実際の高崎市議会データ（議案・一般質問・予算・記者会見等）は含まれません**。
 > UI やロジックの開発は空データのまま行えますが、実データを使った動作確認が必要な場合はメンテナーにご連絡ください。
 
 ### 開発フロー
 
 #### Step 1 — このリポジトリを Fork する
 
-GitHub 右上の「Fork」ボタンで自分のアカウントにコピーを作ります（`your-name/mirai-gikai-fukuoka-city`）。Fork 先があなたの作業場所になります。
+GitHub 右上の「Fork」ボタンで自分のアカウントにコピーを作ります（`your-name/takasaki-city`）。Fork 先があなたの作業場所になります。
 
 #### Step 2 — Fork したリポジトリをクローンしてセットアップ
 
 ```bash
-git clone https://github.com/<your-name>/mirai-gikai-fukuoka-city.git
-cd mirai-gikai-fukuoka-city
+git clone https://github.com/<your-name>/takasaki-city.git
+cd takasaki-city
+git checkout takasaki-city/develop
 cp .env.example .env
 pnpm install
 npx supabase start && pnpm db:reset
@@ -102,8 +108,8 @@ push すると GitHub 上に「Compare & pull request」ボタンが表示され
 
 | 項目 | 値 |
 |------|-----|
-| base repository | `bakumon1107/mirai-gikai-fukuoka-city` |
-| base branch | `fukuoka-city/develop` |
+| base repository | `kou9999999/takasaki-city` |
+| base branch | `takasaki-city/develop` |
 
 > [!TIP]
 > 「Compare & pull request」ボタンを使うと base repository が自動で上記に設定されます。自分の Fork 内で PR を確認してから送ることも可能です。
