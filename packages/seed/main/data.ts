@@ -20,27 +20,29 @@ type InterviewMessageInsert =
 type InterviewReportInsert =
   Database["public"]["Tables"]["interview_report"]["Insert"];
 
-// 定例会データ
+// 定例会データ（高崎市議会 令和8年）
 export const councilSessions: CouncilSessionInsert[] = [
   {
-    name: "令和8年 第1回定例会（2・3月）",
-    slug: "r8-1",
-    council_url: "https://gikai.city.fukuoka.lg.jp/schedule/regular/",
-    start_date: "2026-02-17",
-    end_date: "2026-03-27",
+    name: "令和8年 第5回定例会（9月）",
+    slug: "r8-5",
+    council_url:
+      "https://takasaki.gijiroku.com/voices/g07_Nittei_Kaigi.asp?KaigiID=199",
+    start_date: "2026-09-04",
+    end_date: "2026-09-29",
     is_active: true,
   },
   {
-    name: "令和7年 第4回定例会（12月）",
-    slug: "r7-4",
-    council_url: "https://gikai.city.fukuoka.lg.jp/schedule/regular/",
-    start_date: "2025-12-01",
-    end_date: "2025-12-19",
+    name: "令和8年 第4回定例会（6月）",
+    slug: "r8-4",
+    council_url:
+      "https://takasaki.gijiroku.com/voices/g07_Nittei_Kaigi.asp?KaigiID=197",
+    start_date: "2026-06-09",
+    end_date: "2026-06-25",
     is_active: false,
   },
 ];
 
-// 会派データ（福岡市議会 2026年3月時点）
+// 会派データ（高崎市議会 令和8年6月1日時点。mirai はシード用サンプル会派）
 export const factions: FactionInsert[] = [
   {
     name: "mirai",
@@ -49,85 +51,73 @@ export const factions: FactionInsert[] = [
     is_active: true,
   },
   {
-    name: "jimin-fukuoka",
-    display_name: "自由民主党福岡市議団",
+    name: "shinpu",
+    display_name: "新風会",
     sort_order: 2,
     is_active: true,
   },
   {
-    name: "komei",
-    display_name: "公明党福岡市議団",
+    name: "shimin-club",
+    display_name: "市民クラブ",
     sort_order: 3,
     is_active: true,
   },
   {
-    name: "fukuoka-shimin",
-    display_name: "福岡市民クラブ",
+    name: "komei",
+    display_name: "公明党",
     sort_order: 4,
     is_active: true,
   },
   {
-    name: "kyosan",
-    display_name: "日本共産党福岡市議団",
+    name: "takasaki-mirai",
+    display_name: "たかさき未来",
     sort_order: 5,
     is_active: true,
   },
   {
-    name: "atarashii-kaze",
-    display_name: "新しい風ふくおか",
+    name: "chotoha",
+    display_name: "超党派の会",
     sort_order: 6,
     is_active: true,
   },
   {
-    name: "ishin",
-    display_name: "日本維新の会福岡市議団",
+    name: "kyosan",
+    display_name: "日本共産党高崎市議会議員団",
     sort_order: 7,
-    is_active: true,
-  },
-  {
-    name: "jimin-shin-fukuoka",
-    display_name: "自民党新福岡",
-    sort_order: 8,
     is_active: true,
   },
   {
     name: "mushozoku",
     display_name: "無所属",
-    sort_order: 9,
+    sort_order: 8,
     is_active: true,
   },
 ];
 
-// 委員会データ（福岡市議会 常任委員会）
+// 委員会データ（高崎市議会 常任委員会）
 export const committees: CommitteeInsert[] = [
   {
-    name: "総務財政委員会",
-    description: "総務、財政、企画、税務などについての審査",
+    name: "総務常任委員会",
+    description: "総務、財政、企画、税務、消防などについての審査",
     sort_order: 1,
     is_active: true,
   },
   {
-    name: "教育こども委員会",
-    description: "教育、こども、保育、学校などについての審査",
+    name: "教育福祉常任委員会",
+    description: "教育、子育て、福祉、保健、医療などについての審査",
     sort_order: 2,
     is_active: true,
   },
   {
-    name: "経済振興委員会",
-    description: "産業、観光、農業、商工業などについての審査",
+    name: "市民経済常任委員会",
+    description: "市民生活、環境、産業、観光、農林業などについての審査",
     sort_order: 3,
     is_active: true,
   },
   {
-    name: "福祉都市委員会",
-    description: "福祉、保健、医療、都市整備などについての審査",
+    name: "建設水道常任委員会",
+    description: "都市整備、道路、建築、上下水道などについての審査",
     sort_order: 4,
-    is_active: true,
-  },
-  {
-    name: "生活環境委員会",
-    description: "環境、ごみ、水道、交通などについての審査",
-    sort_order: 5,
     is_active: true,
   },
 ];
@@ -153,7 +143,7 @@ export const tags: TagInsert[] = [
 
 export const bills: BillInsert[] = [
   {
-    name: "福岡市子ども医療費助成条例の一部改正",
+    name: "高崎市子ども医療費助成条例の一部改正",
     status: "in_committee",
     status_note: "文教委員会で審査中",
     published_at: "2025-11-25T09:00:00+09:00",
@@ -161,7 +151,7 @@ export const bills: BillInsert[] = [
     is_featured: true,
   },
   {
-    name: "福岡市地域包括ケアシステム推進条例",
+    name: "高崎市地域包括ケアシステム推進条例",
     status: "approved",
     status_note: "本会議で可決",
     published_at: "2025-09-15T10:00:00+09:00",
@@ -169,7 +159,7 @@ export const bills: BillInsert[] = [
     is_featured: true,
   },
   {
-    name: "福岡市公園条例の一部改正",
+    name: "高崎市公園条例の一部改正",
     status: "rejected",
     status_note: "本会議で否決",
     published_at: "2025-10-01T09:00:00+09:00",
@@ -177,7 +167,7 @@ export const bills: BillInsert[] = [
     is_featured: false,
   },
   {
-    name: "福岡市学校給食費の無償化に関する条例",
+    name: "高崎市学校給食費の無償化に関する条例",
     status: "approved",
     status_note: "本会議で可決、来年度から実施",
     published_at: "2025-09-10T09:00:00+09:00",
@@ -185,7 +175,7 @@ export const bills: BillInsert[] = [
     is_featured: false,
   },
   {
-    name: "福岡市防災対策基本条例の一部改正",
+    name: "高崎市防災対策基本条例の一部改正",
     status: "rejected",
     status_note: "本会議で否決",
     published_at: "2025-09-20T10:00:00+09:00",
@@ -200,11 +190,11 @@ export function createBillsTags(
   insertedTags: { id: string; label: string }[]
 ): Omit<BillsTagsInsert, "id" | "created_at">[] {
   const billTagMap: { [billName: string]: string[] } = {
-    "福岡市子ども医療費助成条例の一部改正": ["子育て・教育"],
-    "福岡市地域包括ケアシステム推進条例": ["福祉・医療"],
-    "福岡市公園条例の一部改正": ["まちづくり・環境"],
-    "福岡市学校給食費の無償化に関する条例": ["子育て・教育"],
-    "福岡市防災対策基本条例の一部改正": ["まちづくり・環境"],
+    "高崎市子ども医療費助成条例の一部改正": ["子育て・教育"],
+    "高崎市地域包括ケアシステム推進条例": ["福祉・医療"],
+    "高崎市公園条例の一部改正": ["まちづくり・環境"],
+    "高崎市学校給食費の無償化に関する条例": ["子育て・教育"],
+    "高崎市防災対策基本条例の一部改正": ["まちづくり・環境"],
   };
 
   const billsTags: Omit<BillsTagsInsert, "id" | "created_at">[] = [];
@@ -234,11 +224,11 @@ const factionStancesData: Omit<
     type: "for",
     comment: `子どもの医療費助成の拡充は、子育て世代の経済的負担を軽減する重要な施策です。
 
-福岡市の子育て環境をより良くし、安心して子育てできるまちづくりに貢献すると考えます。`,
+高崎市の子育て環境をより良くし、安心して子育てできるまちづくりに貢献すると考えます。`,
   },
   {
     type: "for",
-    comment: `高齢化が進む中、地域包括ケアシステムの推進は福岡市にとって重要な課題です。
+    comment: `高齢化が進む中、地域包括ケアシステムの推進は高崎市にとって重要な課題です。
 
 医療・介護・予防・住まい・生活支援を一体的に提供する体制の整備は、市民の安心につながります。`,
   },
@@ -252,7 +242,7 @@ const factionStancesData: Omit<
     type: "for",
     comment: `学校給食の無償化は、子育て支援と教育の充実を同時に実現する重要な政策です。
 
-全ての子どもが質の高い食事を平等に受けられることは、健康格差の解消にもつながります。福岡市の地元食材を活用した食育の推進も期待できます。`,
+全ての子どもが質の高い食事を平等に受けられることは、健康格差の解消にもつながります。高崎市の地元食材を活用した食育の推進も期待できます。`,
   },
   {
     type: "against",
@@ -618,7 +608,7 @@ export function createDemoMessages(): Omit<
       interview_session_id: DEMO_SESSION_ID,
       role: "assistant",
       content:
-        "こんにちは！本日はインタビューにご協力いただきありがとうございます。\n\n福岡市議会で審議されている議案について、市民の皆さまのご意見をお聞かせください。この議案について、どのようにお考えですか？",
+        "こんにちは！本日はインタビューにご協力いただきありがとうございます。\n\n高崎市議会で審議されている議案について、市民の皆さまのご意見をお聞かせください。この議案について、どのようにお考えですか？",
     },
     {
       interview_session_id: DEMO_SESSION_ID,
@@ -630,7 +620,7 @@ export function createDemoMessages(): Omit<
       interview_session_id: DEMO_SESSION_ID,
       role: "assistant",
       content:
-        "なるほど。市政のデジタル化を通じて、行政サービスの効率化と市民の利便性向上を期待されているということですね。とても重要な指摘だと思います。\n\n具体的に、福岡市のどのような行政手続きや窓口サービスがデジタル化されると良いとお考えですか？",
+        "なるほど。市政のデジタル化を通じて、行政サービスの効率化と市民の利便性向上を期待されているということですね。とても重要な指摘だと思います。\n\n具体的に、高崎市のどのような行政手続きや窓口サービスがデジタル化されると良いとお考えですか？",
     },
     {
       interview_session_id: DEMO_SESSION_ID,
@@ -656,7 +646,7 @@ export function createDemoReport(): InterviewReportInsert {
     summary: "期待と懸念両方がある",
     role: "subject_expert",
     role_description:
-      "福岡市在住の会社員\n行政手続きの煩雑さを日常的に感じている",
+      "高崎市在住の会社員\n行政手続きの煩雑さを日常的に感じている",
     opinions: [
       {
         title:
@@ -812,7 +802,7 @@ export function createAdditionalDemoReports(): InterviewReportInsert[] {
         "子育て世帯として医療費負担軽減のため賛成",
       role: "work_related",
       role_description:
-        "福岡市在住の共働き世帯\n子ども2人\n医療費の負担を日常的に感じている",
+        "高崎市在住の共働き世帯\n子ども2人\n医療費の負担を日常的に感じている",
       opinions: [
         {
           title: "子どもの医療費負担が大きい",
@@ -830,7 +820,7 @@ export function createAdditionalDemoReports(): InterviewReportInsert[] {
         "子育て中の保護者として医療費負担軽減を期待",
       role: "daily_life_affected",
       role_description:
-        "福岡市在住の主婦\n小さい子ども2人の子育て中\n医療費の自己負担を日常的に感じている",
+        "高崎市在住の主婦\n小さい子ども2人の子育て中\n医療費の自己負担を日常的に感じている",
       opinions: [
         {
           title: "子どもの医療費負担が大きい",
@@ -848,7 +838,7 @@ export function createAdditionalDemoReports(): InterviewReportInsert[] {
         "財源と子育て支援のバランスを考慮して判断",
       role: "general_citizen",
       role_description:
-        "福岡市在住の会社員\n子育て支援に関心あり\n市の財政にも関心がある",
+        "高崎市在住の会社員\n子育て支援に関心あり\n市の財政にも関心がある",
       opinions: [
         {
           title: "財源と子育て支援のバランス",
